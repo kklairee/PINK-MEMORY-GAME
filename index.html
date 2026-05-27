@@ -2,26 +2,72 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Memory Game!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>💗 Pink Memory</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="game">
-        <div class="controls">
-            <button>Start</button>
-            <div class="stats">
-                <div class="moves">0 moves</div>
-                <div class="timer">Time: 0 sec</div>
+    <div class="confetti-container" id="confetti"></div>
+
+    <div class="game-wrapper">
+        <header>
+            <h1 class="title">💗 Pink Memory</h1>
+            <p class="subtitle" id="best-display">Tap a card to start!</p>
+        </header>
+
+        <div class="difficulty-selector">
+            <button class="diff-btn" data-diff="easy">Easy</button>
+            <button class="diff-btn active" data-diff="medium">Medium</button>
+            <button class="diff-btn" data-diff="hard">Hard</button>
+        </div>
+
+        <div class="stats-bar">
+            <div class="stat-item">
+                <span class="stat-label">Moves</span>
+                <span class="stat-value" id="moves">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Time</span>
+                <span class="stat-value" id="timer">0:00</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Streak</span>
+                <span class="stat-value" id="streak">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Best</span>
+                <span class="stat-value" id="best">--</span>
             </div>
         </div>
-        <div class="board-container">
-            <div class="board" data-dimension="4"></div>
-            <div class="win">You won!</div>
+
+        <div class="board-wrapper">
+            <div class="board" id="board"></div>
+        </div>
+
+        <div class="controls-row">
+            <button class="sound-btn" id="sound-btn" title="Toggle sound">🔊</button>
+            <button class="new-game-btn" id="new-game-btn">New Game</button>
         </div>
     </div>
-    
+
+    <div class="win-modal" id="win-modal">
+        <div class="win-content">
+            <div class="win-emoji" id="win-emoji">🎉</div>
+            <h2>You Won!</h2>
+            <div class="stars" id="stars">
+                <span class="star" id="star1">⭐</span>
+                <span class="star" id="star2">⭐</span>
+                <span class="star" id="star3">⭐</span>
+            </div>
+            <div class="win-stats" id="win-stats"></div>
+            <p class="best-badge" id="best-badge"></p>
+            <button class="play-again-btn" id="play-again-btn">Play Again 💗</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
-<script src="script.js"></script>
 </html>
